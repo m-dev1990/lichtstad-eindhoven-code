@@ -1,0 +1,361 @@
+.Information { 
+    color: var(--clr_foreground);
+    width: 100%;
+    font-size: 14px;
+    display: flex;
+}
+
+.Information_content {
+    display: flex;
+    margin: 16px;
+    flex-grow: 1;
+}
+
+.Information_details {
+    flex-basis: 400px;
+    min-width: 300px;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+.Information_join_line_vertical_margin {
+    flex-basis: 65px;
+    flex-grow: 1;
+    flex-shrink:0;
+    max-width: 300px;
+}
+
+.Information_description {
+    flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: 800px;
+    min-width: 300px;
+    max-width: 800px;
+}
+
+
+.Information._description {
+    
+}
+
+.Information_panel {
+    border: 1px solid var(--clr_foreground);
+    min-height: 54px;
+    background: var(--background);
+    box-shadow: var(--box_shadow_full);
+}
+
+.Information_panel:not(:first-child) {
+    margin-top: 16px;
+}
+
+.Information_bar_top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.Information_panel._Philips .Information_bar_top {
+    padding-right: 0px;
+}
+
+.Information_panel_content {
+    /* display block to allow content to wrap around after floating Philips logo */
+    display: block;
+}
+
+.Information_bar_top_left {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0;
+    word-break: break-word;
+}
+
+.Information_naam {
+    flex-grow: 0;
+    justify-self: left;
+    font-size: 22px;
+    margin: -1px;
+    padding: 0px 16px;
+    border: 1px solid var(--clr_foreground);
+}
+
+.Information_project_url {
+    display: flex;
+    /* border: 1px solid var(--clr_foreground); */
+    margin: 0px 0px;
+    align-items: center;
+}
+
+.Information_bar_top .Information_project_url {
+    width: 32px;
+}
+
+.Information_bar_renovatie .Information_project_url {
+    width: 28px;
+}
+
+.Information_project_link {
+    display: block;
+    --clr: var(--clr_foreground);
+}
+
+.Information_project_link * {
+    transition: 0.3s stroke ease-in-out;
+}
+
+.Information_project_link:hover {
+    --clr: var(--clr_accent_3);
+    cursor: pointer;
+}
+
+.Information_bar_top_right {
+    flex-shrink: 0;
+    flex-basis: 10%;
+}
+
+.Information_strijp {
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    line-height: 16px;
+    justify-self: end;
+    padding: 6px 10px;
+}
+
+.Information_strijp_letter {
+
+}
+
+.Information_strijp_letter._active {
+    text-decoration: underline;
+}
+
+.Information_strijp_letter._niet_gebouwd {
+    color: var(--clr_inactive);
+}
+
+.Information_TUe {
+    justify-self: end;
+    line-height: 14px;
+    font-family: Gilroy;
+    /* TUe color */
+    
+    font-size: 11px;
+    padding: 6px 10px;
+}
+
+.Information_TUe:hover {
+    color: #ff2f33;
+}
+
+.Information_Philips {
+    float: left;
+    /* position: relative in order to activate z-index 
+            must appear visually over of Information_description_joiner */ 
+    position: relative;
+    margin-top: 2px;
+    margin-right: -25px;
+    margin-left: -10px;
+    float: right;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.Information_Philips_background {
+    fill: var(--svg_background);
+}
+
+.Information_top_left_corner {
+    float: left;
+    top: 0;
+    right: 0;
+    position: relative;
+}
+
+.Information_bottom_left_corner {
+    float: left;
+    bottom: 0;
+    right: 0;
+    position: relative;   
+}
+
+.Information_top_right_corner {
+    float: right;
+    top: 0;
+    right: 0;
+    position: relative;
+}
+
+.Information_bottom_right_corner {
+    float: right;
+    bottom: 0;
+    right: 0;
+    position: relative;   
+}
+
+.Information_cmd_show_description {
+    position: absolute;
+    top: -12px;
+    right: 8px;
+    stroke: var(--clr_foreground);
+    cursor: pointer;
+}
+
+.Information_cmd_show_description .circle {
+    fill: var(--background);
+    stroke: var(--clr_foreground);
+}
+
+.Information_cmd_show_description .ellipsis {
+    fill: var(--clr_foreground);
+    stroke: var(--clr_foreground);
+}
+
+.App._thema-oud .Information_cmd_show_description .circle {
+    fill: var(--svg_background);
+    stroke: var(--background);
+}
+
+.App._thema-oud .Information_cmd_show_description .ellipsis {
+    fill: var(--clr_foreground);
+    stroke: var(--clr_foreground);
+}
+
+.Information_cmd_show_description:hover .circle,
+.App._thema-oud .Information_cmd_show_description:hover .circle {
+    stroke: var(--clr_accent_3);
+}
+
+.Information_cmd_show_description:hover .ellipsis,
+.App._thema-oud .Information_cmd_show_description:hover .ellipsis {
+    stroke: var(--clr_accent_3);
+}
+
+.Information_cmd_show_description:not(:hover)._is_shown .circle,
+.App._thema-oud .Information_cmd_show_description:not(:hover)._is_shown .circle {
+    fill: var(--clr_accent_3);
+    stroke: var(--clr_foreground);
+}
+
+.Information_cmd_show_description:not(:hover)._is_shown .ellipsis,
+.App._thema-oud .Information_cmd_show_description:not(:hover)._is_shown .ellipsis {
+    fill: var(--clr_foreground);
+    stroke: var(--clr_foreground);
+}
+
+.Information_onderwerp_space {
+
+}
+
+.Information_maak {
+
+}
+
+.Information_maak:not(:last-child) {
+    border-bottom: 1px solid var(--clr_foreground);
+}
+
+.Information_maak_content {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.Information_renovatie {
+    padding-left: 16px;
+    padding-right: 16px;
+ 
+    font-size: 16px;
+    border-bottom: 1px solid var(--clr_foreground);
+    border-right: 1px solid var(--clr_foreground);
+    /* border-bottom: 1px solid var(--clr_foreground); */
+}
+
+.Information_bar_renovatie {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Information_bar_renovatie_left {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Information_bar_renovatie .Information_project_link {
+    height: 28px;
+}
+
+.Information_item {
+    display: flex;
+}
+
+.Information_label {
+    width: 100px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    padding-left: 16px;
+}
+
+.Information_value {
+    padding-right: 16px;
+}
+
+.Information_join_line_vertical_margin {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    
+}
+
+.Information_join_line_vertical_zone {
+    position: relative;
+    height: 100%;
+    width: 1px;
+    margin: auto;
+}
+
+.Information_join_line_vertical {
+    border-left: 1px solid white;
+    position: absolute;
+}
+
+.Information_join_line_horizontal {
+    position: absolute;
+    border-top: 1px solid var(--clr_foreground);
+}
+
+.Information_join_line_horizontal._left {
+    left: 1px;
+}
+
+.Information_join_line_horizontal._right {
+    right: 1px;
+}
+
+.Information_join_line_horizontal._top {
+    top: 8px;
+}
+
+.Information_join_line_horizontal._bottom {
+    top: -8px;
+}
+
+.Information_description {
+    
+}
+
+.Information_description_panel {
+    border: 1px solid var(--clr_foreground);
+
+    background: var(--background);
+}
+
+.Information_description_panel_content {
+    padding: 16px 16px;
+}
+
+.Information_description_paragraph:not(:first-child) {
+    padding-top: 8px;
+}

@@ -1,0 +1,350 @@
+/*
+@font-face {
+  font-family: Aaargh;
+  src: url(/assets/fonts/Aaargh/Aaargh-webfont.woff);
+}
+
+@font-face {
+  font-family: Lane;
+  src: url(/assets/fonts/Lane/LANENAR_.ttf);
+}
+*/
+
+@font-face {
+  font-family: TGL;
+  src: url("/assets/fonts/tgl/TGL 31034-1.ttf");
+}
+
+@font-face {
+  font-family: Gilroy;
+  src: url("/assets/fonts/gilroy/Gilroy-Bold.ttf");
+}
+
+.App {
+  font-family: TGL;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  background: var(--background);
+  overflow: hidden;
+  font-size-adjust: 0.75;
+  overflow-x: auto;
+}
+
+.App._thema-modern {
+  --background: #000044;
+  --clr_accent_3: #00aaff;
+  --clr_accent_7: #05206b;
+  --clr_accent_5: #224ea0;/*#e9e3aa;*/
+  --clr_accent_8: #03112b;/*#e9e3aa;*/
+  --clr_foreground: white;
+  --clr_border: var(--clr_border);
+  --box_shadow_top: inset 0px 1px 1px white;
+  --box_shadow_full: none;
+  --clr_inactive: #777777;
+  --svg_background: var(--background);
+  --font-size-text: 16px;
+}
+
+.App._thema-oud {
+  /*--background: linear-gradient(#380f05, #461609);*/
+  /* TODO lichtstad-eindhoven should be from base path */
+  --background: url('/lichtstad-eindhoven/assets/images/bakeliet\ textuur.png') no-repeat center / cover;
+  --clr_accent_3: rgb(247, 73, 102);/*#e9e3aa;*/
+  --clr_accent_5: rgb(185, 73, 93);/*#e9e3aa;*/
+  --clr_accent_6: rgb(150, 50, 68);/*#e9e3aa;*/
+  --clr_accent_7: rgb(126, 39, 55);/*#e9e3aa;*/
+  --clr_accent_8: rgb(68, 11, 21);/*#e9e3aa;*/
+  --clr_foreground: #e9e3aa; /* #1f0701; */
+  --box_shadow_top: inset 0px 5px 10px rgb(78, 28, 5);
+  --box_shadow_full: inset 0px 0px 15px rgb(78, 28, 5);
+  --clr_border: #866e1f;
+  --clr_inactive: #866e1f;
+  --svg_background: url(#svg_pattern_bakeliet);
+}
+
+.Main {
+  grid-area: 1/1;
+  grid-template: 100% / auto 142px;
+  display: grid;
+  height: 100%;
+  min-width: 800px;
+}
+
+.Photo_container {
+  grid-area: 1 / 1 / span 1 / span 2;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+}
+
+.Photo_box {
+  justify-self: center;
+  align-self: center;
+}
+
+.Badge {
+  grid-area: 1 / 2;
+  text-align: center;
+  justify-self: end;
+  margin: 16px;
+  /* 100px: just a large enough value, for the light to overflow. It cannot be 100% */
+  overflow-clip-margin: 100px;
+}
+
+.Information {
+  grid-area: 1 / 1;
+  justify-self: start;
+  align-self: start;
+}
+
+.Tuner {
+  position: relative;
+  display: grid;
+  grid-area: 1 / 1 / span 1 / span 2;
+  justify-self: stretch;
+  align-self: flex-end;
+  min-width: 100%;
+  background: var(--background);
+  box-shadow: var(--box_shadow_top);
+}
+
+.App .Tuner {
+  transition: transform 0.3s;
+  transform: translateY(calc(100% - 21px));
+}
+
+.App._controls .Tuner {
+  transition: transform 0.4s;
+  transform: translateY(0%);
+}
+
+.Tuner_bar_top {
+  bottom: calc(100% - 13px); 
+  left: calc((100% - 540px) / 2);
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+}
+
+.App._thema-oud .Tuner_onderwerp {
+  background-color: var(--clr_foreground);
+  color: var(--background);
+  border: 1px solid var(--clr_border); 
+}
+
+.Tuner_onderwerp {
+  width: 250px;
+  height: 23px;
+  border: 1px solid var(--clr_foreground);
+  overflow: hidden;
+  background-color: var(--background);
+  color: var(--clr_foreground);
+  width: 540px;
+  text-align: center;
+}
+
+.Tuner_onderwerp_text {
+  /* display: flex allows content to be wider when overflow */
+  display: flex;
+}
+
+.Tuner_onderwerp_text_positioner {
+  /* display: flex allows content to be wider when overflow */
+  display: flex;
+  flex-direction: row;
+}
+
+.Tuner_onderwerp_text_content_container {
+  /* position relative for correct measurement of transform translateX */
+  position: relative;
+  /* padding for initial positioning in box */
+  padding-left: 4px;
+  padding-right: 4px;
+  /* same as `.Tuner_onderwerp` with `box-sizing: border-box;`
+    => for correct text-align center*/
+  min-width: 540px; 
+  box-sizing: border-box;
+}
+
+.Tuner_onderwerp_text._animated .Tuner_onderwerp_text_content_container {
+  animation-name: Tuner_onderwerp_animation;
+  /* 50px per s */
+  animation-duration: calc(var(--width) / 50 * 1s);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-delay: 1s;
+}
+
+.Tuner_onderwerp_text_content {
+  /* min-width for correct text-align center */
+  min-width: 532px;
+  /* padding between first and second text */
+  margin-right: 192px;
+  white-space: nowrap;
+  font-size: 16px;
+  line-height: 23px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: var(--font-size-text);
+}
+
+@keyframes Tuner_onderwerp_animation {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.App._thema-oud .Tuner_onderwerp_text {
+  color: var(--clr_border);
+}
+
+.Tuner_button_information {
+  margin-left: 24px;
+  cursor: pointer;
+}
+
+/* state: information not shown */
+.Tuner_button_information_border {
+  fill: var(--background);
+  stroke: var(--clr_foreground);
+}
+
+.Tuner_button_information_text {
+  fill: var(--clr_foreground);
+  stroke: var(--clr_foreground);
+}
+
+/* state: information shown */
+.Tuner_button_information._is_shown .Tuner_button_information_border {
+  fill: var(--clr_accent_3);
+  stroke: var(--clr_foreground);
+}
+
+.Tuner_button_information._is_shown:not(:hover) .Tuner_button_information_text {
+  fill: var(--clr_foreground);
+  stroke: var(--clr_foreground);
+}
+
+/* state: hover */
+.Tuner_button_information:hover .Tuner_button_information_border {
+  fill: var(--background);
+  stroke: var(--clr_accent_3);
+}
+
+.Tuner_button_information:hover .Tuner_button_information_text {
+  fill: var(--clr_accent_3);
+}
+
+/* state: thema oud + information not shown */
+.App._thema-oud .Tuner_button_information .Tuner_button_information_border {
+  fill: var(--clr_foreground);
+  stroke: var(--clr_border);
+}
+
+.App._thema-oud .Tuner_button_information .Tuner_button_information_text {
+  fill: var(--clr_border);
+  stroke: var(--clr_border);
+}
+
+/* state: thema oud + information shown */
+.App._thema-oud .Tuner_button_information._is_shown:not(:hover) .Tuner_button_information_border {
+  fill: var(--clr_accent_3);
+  stroke: var(--clr_foreground);
+}
+
+.App._thema-oud .Tuner_button_information._is_shown:not(:hover) .Tuner_button_information_text {
+  fill: var(--clr_foreground);
+  stroke: var(--clr_foreground);
+}
+
+/* state: thema oud + hover */
+.App._thema-oud .Tuner_button_information:hover .Tuner_button_information_border {
+  fill: var(--clr_foreground);
+  stroke: var(--clr_accent_3);
+}
+
+.App._thema-oud .Tuner_button_information:hover .Tuner_button_information_text {
+  fill: var(--clr_accent_3);
+  stroke: var(--clr_accent_3);
+}
+
+.Tuner_content {
+  justify-self: center;
+  align-self: flex-end;
+  display: grid;
+  width: min-content;
+  height: min-content;
+  
+  padding: 24px 0px 8px 0px;
+  grid-template: "a b c" min-content / min-content;
+}
+
+.Tuner_golven {
+  grid-area: 2/2;
+  justify-self: center;
+}
+
+.Tuner_cmd_minus {
+  grid-area: 2/1;
+  cursor: pointer;
+}
+.Tuner_cmd_minus:hover * {
+  stroke: var(--clr_accent_3);
+}
+
+.Tuner_cmd_plus {
+  grid-area: 2/3;
+  cursor: pointer;
+}
+
+.Tuner_cmd_plus:hover * {
+  stroke: var(--clr_accent_3);
+}
+
+.Badge {
+  position: relative;
+}
+
+.Badge_circle {
+  z-index: 0;
+  cursor: pointer;
+  /* filter: drop-shadow(0px 0px 10px white); */
+}
+
+.App._thema-modern .Badge_circle {
+  fill: var(--clr_accent_3);
+}
+
+/* with thema oud: show only for clicking, shapes for glass appearance are the visual elements */
+.App._thema-oud .Badge_circle {
+  fill: transparent;
+}
+
+/*
+  shapes for glass appearence
+  thema modern has no glass appearance
+*/
+.App._thema-modern .Badge_circle_transparency {
+  display: none;
+}
+
+.App._thema-modern .Badge_circle_gloss {
+  display: none;
+}
+
+.App._thema-modern .Badge_circle_shadow {
+  display: none;
+}
+
+.Badge_circle_light {
+  z-index: -1;
+  pointer-events: none;
+}
+
+.Badge_circle_light:not(:has(+ .Badge_circle:hover)) {
+  display: none;
+}

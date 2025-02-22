@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"
+    style="background-color: transparent;">
+    <defs>
+        <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <stop offset="0%" stop-color="rgba(255, 255, 255, 0)" />
+            <stop offset="53.125%" stop-color="rgba(255, 255, 255, 0)" />
+            <stop offset="53.125%" stop-color="white" />
+            <stop offset="87.125%" stop-color="rgba(255, 255, 255, 0)" />
+            <stop offset="100%" stop-color="rgba(255, 255, 255, 0)" />
+        </radialGradient>
+    </defs>
+
+    <rect fill="url(#grad1)" x="0" y="0" width="512" height="512" />
+
+    <circle r="128" cx="255.5" cy="255.5"  
+        fill="#00aaff" />
+
+</svg>
