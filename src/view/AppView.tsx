@@ -216,6 +216,12 @@ class AppView extends React.Component<tProps, tState> {
         <div className={ `App _thema-${ Designs[this.state.design_index] } ${this.state.is_tuner_visible ? '_controls' : ''}` }
           onMouseMove={ this.handle_mouse_move }>
 
+          <svg className="SVGResources">
+            <pattern id="svg_pattern_bakeliet" width="100%" height="100%">
+              <image href={ EindhovenURL.path + "/assets/images/bakeliet textuur.png" } />
+            </pattern>
+          </svg>
+
           <div className="Main">
             <PhotoView size={ this.props.size } photo_view_index={ this.photo_index_view }
               photo_next_index={ this.photo_index_next }

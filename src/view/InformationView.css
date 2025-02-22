@@ -165,6 +165,7 @@
 
 .Information_Philips_background {
     fill: var(--svg_background);
+    stroke: var(--clr_background);
 }
 
 .Information_top_left_corner {
@@ -201,6 +202,12 @@
     right: 8px;
     stroke: var(--clr_foreground);
     cursor: pointer;
+}
+
+.Information_cmd_show_description,
+.Information_cmd_show_description * {
+    transition: fill 0.3s ease-in-out,
+        stroke 0.3s ease-in-out;
 }
 
 .Information_cmd_show_description .circle {
@@ -306,7 +313,6 @@
 .Information_join_line_vertical_margin {
     padding-top: 16px;
     padding-bottom: 16px;
-    
 }
 
 .Information_join_line_vertical_zone {
@@ -317,7 +323,7 @@
 }
 
 .Information_join_line_vertical {
-    border-left: 1px solid white;
+    border-left: 1px solid var(--clr_foreground);
     position: absolute;
 }
 

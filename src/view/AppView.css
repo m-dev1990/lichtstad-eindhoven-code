@@ -49,7 +49,7 @@
 .App._thema-oud {
   /*--background: linear-gradient(#380f05, #461609);*/
   /* TODO lichtstad-eindhoven should be from base path */
-  --background: url('/lichtstad-eindhoven/assets/images/bakeliet\ textuur.png') no-repeat center / cover;
+  --background: rgb(78, 20, 6) url('/lichtstad-eindhoven/assets/images/bakeliet\ textuur.png') no-repeat center / cover;
   --clr_accent_3: rgb(247, 73, 102);/*#e9e3aa;*/
   --clr_accent_5: rgb(185, 73, 93);/*#e9e3aa;*/
   --clr_accent_6: rgb(150, 50, 68);/*#e9e3aa;*/
@@ -69,6 +69,11 @@
   display: grid;
   height: 100%;
   min-width: 800px;
+}
+
+
+.SVGResources {
+  grid-area: 1/1;
 }
 
 .Photo_container {
@@ -207,6 +212,12 @@
   cursor: pointer;
 }
 
+.Tuner_button_information,
+.Tuner_button_information * {
+  transition: fill 0.3s ease-in-out,
+    stroke 0.3s ease-in-out;
+}
+
 /* state: information not shown */
 .Tuner_button_information_border {
   fill: var(--background);
@@ -292,6 +303,13 @@
   grid-area: 2/1;
   cursor: pointer;
 }
+
+.Tuner_cmd_minus,
+.Tuner_cmd_minus * {
+  transition: fill 0.3s ease-in-out,
+    stroke 0.3s ease-in-out;
+}
+
 .Tuner_cmd_minus:hover * {
   stroke: var(--clr_accent_3);
 }
@@ -299,6 +317,12 @@
 .Tuner_cmd_plus {
   grid-area: 2/3;
   cursor: pointer;
+}
+
+.Tuner_cmd_plus,
+.Tuner_cmd_plus * {
+  transition: fill 0.3s ease-in-out,
+    stroke 0.3s ease-in-out;
 }
 
 .Tuner_cmd_plus:hover * {

@@ -3,6 +3,7 @@ import './InformationView.css'
 import Fotoos from '../data/Fotoos'
 import { render_path, M, L, Z } from '../SvgPathCommands'
 import * as vm from './InformationViewModel'
+import EindhovenURL from './EindhovenURL'
 
 type tProps = {
   photo_view_index: number
@@ -304,9 +305,6 @@ export default class InformationView extends React.Component<tProps, tState> {
     return <svg xmlns="http://www.w3.org/2000/svg"
       className="Information_Philips" width="50" height="50" viewBox="0 0 192.756 192.756">
       <g fillRule="evenodd" clipRule="evenodd">
-        <pattern id="svg_pattern_bakeliet" width="100%" height="100%">
-          <image href="/assets/images/bakeliet textuur.png" />
-        </pattern>
         <path className="Information_Philips_background"
           d="M166.133 2.834H26.624v99.39c0 30.643 1.412 44.15 14.919 61.086 14.112 17.539 34.07 26.611 55.239 26.611 19.959 0 41.127-9.072 55.238-27.016 13.105-16.531 14.113-29.232 14.113-60.682V2.834z" />
         

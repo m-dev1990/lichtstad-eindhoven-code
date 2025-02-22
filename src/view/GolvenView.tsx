@@ -128,7 +128,7 @@ export default class GolvenView extends React.Component<tProps, tState> {
 
             { ster_drag_x !== undefined ? <path key="ster-drag"
                 d={ render_path(this.create_path_ster([ster_drag_x + 27, size_golven[1] / 2], 27, 5)) }
-                fill="var(--background)"
+                fill="var(--svg_background)"
                 stroke="var(--clr_foreground)"
                 /> : ''}
 
