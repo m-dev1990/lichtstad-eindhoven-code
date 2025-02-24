@@ -367,8 +367,11 @@
 .Badge_circle_light {
   z-index: -1;
   pointer-events: none;
+  display: block;
+  opacity: 0;
+  transition: 0.4s opacity ease-in-out;
 }
 
-.Badge_circle_light:not(:has(+ .Badge_circle:hover)) {
-  display: none;
+.Badge_circle_light:has(~ .Badge_circle:hover) {
+  opacity: 1;
 }

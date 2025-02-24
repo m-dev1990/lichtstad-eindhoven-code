@@ -44,7 +44,7 @@ export default class GolvenView extends React.Component<tProps, tState> {
     }
 
     handle_click = (ev: React.MouseEvent) => {
-        if (!this.state.photo_index_drag) throw new Error()
+        if (this.state.photo_index_drag === undefined) throw new Error()
         
         this.props.move_to(this.state.photo_index_drag)
 
